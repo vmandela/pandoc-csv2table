@@ -132,17 +132,20 @@ getAtr a ((at,v):_) | a == at = v
 getAtr a (_:xs)               = getAtr a xs
 getAtr a []                   = ""
 
+toMarkdown2 x y z = pack (toMarkdown x y z)
+
 -- | Make Pandoc Table from Image Inline 
 tableFromImageInline :: [J.Inline] -> CSV -> J.Pandoc
 tableFromImageInline l = addInlineLabel (removeConfigString l) .
                          readMarkdown' def .
-                         toMarkdown (getTableType l) AfterTable .
+                         toMarkdown2 (getTableType l) AfterTable .
                          mkTable "" (getAligns l) (isHeaderPresent l)
+
 
 -- | Make Pandoc Table from Code Block 
 tableFromCodeBlock :: Atrs -> CSV -> J.Pandoc
 tableFromCodeBlock as = readMarkdown' def .
-                        toMarkdown (toTableType $ getAtr "type" as) AfterTable .
+                        toMarkdown2 (toTableType $ getAtr "type" as) AfterTable .
                         mkTable (getAtr "caption" as)
                                 (toAlign $ getAtr "aligns" as)
                                 (isHeaderPresent1 $ getAtr "header" as)
