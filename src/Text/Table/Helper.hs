@@ -148,7 +148,7 @@ tableFromCodeBlock as = readMarkdown' def .
                                 (isHeaderPresent1 $ getAtr "header" as)
 
 #if MIN_VERSION_pandoc(1,14,0)
-readMarkdown' :: ReaderOptions -> String -> J.Pandoc
+readMarkdown' :: ReaderOptions -> T.Text -> J.Pandoc
 readMarkdown' o s = case read of
                       (Left _)  -> J.Pandoc J.nullMeta []
                       (Right p) -> p
