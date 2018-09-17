@@ -52,6 +52,8 @@ module Text.Table.Helper (
 import Text.CSV (CSV)
 import Data.List (isInfixOf)
 import Text.Pandoc (readMarkdown, def, ReaderOptions)
+import Data.Text (pack, unpack)
+import qualified Data.Text as T
 import qualified Text.Pandoc.JSON as J
 -- Local imports
 import Text.Table.Definition
