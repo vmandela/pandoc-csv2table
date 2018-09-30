@@ -150,7 +150,10 @@ tableFromCodeBlock as = readMarkdown' def .
                                 (toAlign $ getAtr "aligns" as)
                                 (isHeaderPresent1 $ getAtr "header" as)
 
-#if MIN_VERSION_pandoc(1,14,0)
+#if MIN_VERSION_pandoc(2,0,0)
+readMarkdown' :: ReaderOptions -> T.Text -> J.Pandoc
+readMarkdown' = readMarkdown
+#elif MIN_VERSION_pandoc(1,14,0)
 readMarkdown' :: ReaderOptions -> T.Text -> J.Pandoc
 readMarkdown' o s = case read of
                       (Left _)  -> J.Pandoc J.nullMeta []
