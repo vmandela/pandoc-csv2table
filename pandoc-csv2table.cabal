@@ -41,7 +41,7 @@ Executable pandoc-csv2table
                       csv >= 0.1.2,
                       pandoc >= 1.13.0.0,
                       pandoc-types >= 1.12.0.0,
-                      pandoc-csv2table >= 1.0.0
+                      pandoc-csv2table
   Hs-Source-Dirs:     .
   Main-Is:            csv2table.hs
   Buildable:          True
