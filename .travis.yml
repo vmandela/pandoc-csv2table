@@ -205,7 +205,7 @@ install:
       #  stack --no-terminal $ARGS solver --update-config)
 
       # Build the dependencies
-      stack --no-terminal --install-ghc $ARGS test --bench --only-dependencies
+      travis_wait 30 stack --no-terminal --install-ghc $ARGS test --bench --only-dependencies
       ;;
     cabal)
       cabal --version
