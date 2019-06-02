@@ -47,3 +47,13 @@ Executable pandoc-csv2table
   Buildable:          True
   Default-Language:   Haskell2010
 
+Test-Suite test-foo
+    type:       exitcode-stdio-1.0
+    main-is:    test-foo.hs
+    build-depends: base >= 4 && < 5,
+                   pandoc-csv2table,
+                   pandoc,
+                   raw-strings-qq,
+                   pandoc-types,
+                   text,
+                   transformers
